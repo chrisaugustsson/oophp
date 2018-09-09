@@ -15,79 +15,58 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?= $title ?></title>
+    <title><?=$title?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <script type="text/javascript" src="../htdocs/js/bulma-carousel.min.js"></script>
 
 <?php if (isset($favicon)) : ?>
-    <link rel="icon" href="<?= $favicon ?>">
-<?php endif; ?>
+    <link rel="icon" href="<?=$favicon?>">
+<?php endif;?>
 
 <?php if (isset($stylesheets)) : ?>
     <?php foreach ($stylesheets as $stylesheet) : ?>
-        <link rel="stylesheet" type="text/css" href="<?= asset($stylesheet) ?>">
-    <?php endforeach; ?>
-<?php endif; ?>
+        <link rel="stylesheet" type="text/css" href="<?=asset($stylesheet)?>">
+    <?php endforeach;?>
+<?php endif;?>
 
 </head>
 <body>
 
-<!-- header -->
-<?php if (regionHasContent("header")) : ?>
-<div class="outer-wrap outer-wrap-header">
-    <div class="inner-wrap inner-wrap-header">
-        <div class="row">
-            <div class="wrap-header">
-                <?php renderRegion("header") ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
 <!-- navbar -->
 <?php if (regionHasContent("navbar")) : ?>
-<div class="outer-wrap outer-wrap-navbar">
-    <div class="inner-wrap inner-wrap-navbar">
-        <div class="row">
-            <div class="wrap-navbar">
-                <?php renderRegion("navbar") ?>
-            </div>
+    <div class="navbar is-spaced is-success">
+        <div class="navbar-brand">
+            <?php renderRegion("header")?>
+        </div>
+        <div class="navbar-menu">
+            <?php renderRegion("navbar")?>
         </div>
     </div>
-</div>
-<?php endif; ?>
+<?php endif;?>
 
 <!-- main -->
 <?php if (regionHasContent("main")) : ?>
-<div class="outer-wrap outer-wrap-main">
-    <div class="inner-wrap inner-wrap-main">
-        <div class="row">
-            <main class="wrap-main">
-                <?php renderRegion("main") ?>
-            </main>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
+    <main class="wrap-main">
+        <?php renderRegion("main")?>
+    </main>
+<?php endif;?>
 
 <!-- footer -->
 <?php if (regionHasContent("footer")) : ?>
-<div class="outer-wrap outer-wrap-footer">
-    <div class="inner-wrap inner-wrap-footer">
-        <div class="row">
-            <div class="wrap-footer">
-                <?php renderRegion("footer") ?>
-            </div>
-        </div>
+<div class="footer has-shadow has-background-success">
+    <div class="content has-text-centered">
+        <?php renderRegion("footer")?>
     </div>
 </div>
-<?php endif; ?>
+<?php endif;?>
 
 <?php if (isset($stylesheets)) : ?>
     <?php foreach ($javascripts as $javascript) : ?>
-    <script async src="<?= asset($javascript) ?>"></script>
-    <?php endforeach; ?>
-<?php endif; ?>
+    <script async src="<?=asset($javascript)?>"></script>
+    <?php endforeach;?>
+<?php endif;?>
 
 </body>
 </html>

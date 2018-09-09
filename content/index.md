@@ -1,25 +1,60 @@
 ---
-title: "Min fina titel"
+title: "Home"
 ---
-Min me-sida i kursen oophp
-=========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/index.md`.
+<section class="hero is-medium is-primary is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="has-text-centered is-size-1">Me sida för oophp</h1>
+    </div>
+  </div>
+</section>
 
-[FIGURE src="image/me.jpg?w=500" caption="Bild på mig"]
+<div class="container">
+<section class="section">
+  <div class="columns has-text-centered is-size-1">
+    <div class="column is-one-third">
+        <i class="fab fa-php fa-2x is-large"></i>
+    </div>
+    <div class="column">
+      <i class="fas fa-code fa-2x"></i>
+    </div>
+    <div class="column">
+      <i class="fab fa-git fa-2x is-large"></i>
+    </div>
+  </div>
+</section>
 
-Detta är min me-sida i kursen. Denna sidan innehåller en presentation av mig själv. Underhåll denna sidan under hela kursen och uppdatera den efter hand och behov.
+<section class="section">
+  <div class="content">
+    <h1 class="is-size-1 has-text-centered">Christopher Augustsson</h1>
+  </div>
+</section>
+</div>
 
-Så, en presentation en bra början. Skriv några ord om dig själv. Jag börjar.
-
-Mitt namn är Mikael Roos. Född och uppvuxen i Bankeryd, Småland, strax utanför Jönköping, i ett villaområde som byggdes upp samtidigt som vi flyttade in där. Jag gillade landhockey och har spelat bandy och hockey samt gått bowlinggymnasiet i Nässjö. Jag har varit städare, diskare, kallskänka, servitör och kock. På ett bananskal landade jag i Ronneby när jag började högskolan 1990 där och nu är jag kvar med fru, barn och så vidare.
-
-Programmering har alltid intresserat mig sedan 13-årsåldern och min första dator var en Spectravideo 328 med bandspelare.
-
-Om jag skall nämna någon hobby, förutom webbprogrammering, så får det bli att bära sten på sommarstugetomten, och det finns sten så det räcker och blir över.
-
-Till och från får jag för mig att börja på lite hobbies, ett år satsade jag på pokerspel, ett annat år var det geocaching och sedan turfing. Nu ligger jag lågt med hobbies, men något kanske dyker upp...?
-
-Vi syns och hörs i forum och chatt!
-
-/Mikael
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <img src="image/me.jpg">
+      </div>
+      <div class="column">
+        <div class="content">
+        <h1>Vem är jag?</h1>
+         <p>
+          Christopher heter jag. 30 år gammal och bor i Skene med min sambo och våra tre barn. Jobbar för närvarande som serviceingenjör hos MTS i Göteborg. MTS säljer samt underhåller utrustning för olika typer av provning, som tex utmattningsprover för olika typer av material eller hela komponenter. I min roll som serviceingenjör har jag bla ansvaret för att utföra ackrediterad kalibrering, kund träning på vår mjukvara, samt installation och underhåll utav provningsutrustning.
+        </p>
+        <p>
+          Läser andra året på programmet Webprogrammering hos BTH - där denna kursen ingår.
+        </p>
+        <p>
+          Andra intressen jag har är kampsport. Började träna boxning när jag var 16 år gammal och har väl hållt på med någon form av kampsort till och från sedan dess. Men med hus och tre barn finns det inte så mycket tid över för andra intressen - förutom lite snowboard då såklart!
+        </p>
+        <p>
+          Tack för mig.
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

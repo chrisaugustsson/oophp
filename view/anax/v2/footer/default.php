@@ -11,4 +11,7 @@ namespace Anax\View;
 
 ?>
 
-FOOTER
+
+<div class="content">
+    <h2 class="has-text-white" style="z-index: 100; ">Christopher Augustsson</h2>
+</div>

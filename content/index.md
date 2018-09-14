@@ -36,7 +36,7 @@ title: "Home"
   <div class="container">
     <div class="columns">
       <div class="column">
-        <img src="image/me.jpg">
+        <img src="image/me2.jpg">
       </div>
       <div class="column">
         <div class="content">

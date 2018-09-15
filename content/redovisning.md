@@ -61,7 +61,11 @@ Det har varit spännande att komma tillbaka till Anax-flat med lite mer erfarenh
 <DIV class="redovisning hide">
 Kursmoment 2
 ===============
-Text hamnar här
+Att föra över gissa-spelet till ramverket va en bra övning i att bekanta sig mer i ramverket. Det var inga större svårigheter. Jag hade två olika vyer, en för GET och POST, samt en för SESSION. När jag väl förde över spelen insåg jag att det inte var någon större skillnad mellan de båda vyerna och kunde slå ihop koden så att endast en vy används för samtliga versioner. Utan video-serien hade jag nog inte klarat det fullt så enkelt som det nu var. Den var mycket hjälpsam!
+
+Den automatiskt genererande dokumentationen var mycket smidig. Jag skummade igenom den som hade skapats något, och måste nog erkänna att jag inte riktigt hänger med hur den är uppbyggd. Om man jämför med ett UML-diagram (vilket är lite som att jämföra äpplen och päron), så är det mycket lättare att få en överskådlig bild över applikationen med ett UML-diagram. Däremot får du inte en detaljerad beskrivning av de olika apierna i klasserna på samma sätt som man får av dokumentationen. Som sagt, inte fullt jämförbart och fyller olika funktioner.
+
+Jag är inte helt bekant med Anax ännu, så det blir något besvärligare att programmera i ramverket, kontra utanför. Dock tvingar ofta ett ramverk att man följer ett visst mönster i sin kod, vilket ofta är bra så länge ramverket följer ett bra mönster. Det är mycket lättare att komma igång och programmera utanför ramverket, men det är också mycket lättare att skriva "dålig" kod.
 
 
 </div>

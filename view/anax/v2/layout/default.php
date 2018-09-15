@@ -21,12 +21,12 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
     <script type="text/javascript" src="../htdocs/js/bulma-carousel.min.js"></script>
 
-<?php if (isset($favicon)) : ?>
+<?php if (isset($favicon)): ?>
     <link rel="icon" href="<?=$favicon?>">
 <?php endif;?>
 
-<?php if (isset($stylesheets)) : ?>
-    <?php foreach ($stylesheets as $stylesheet) : ?>
+<?php if (isset($stylesheets)): ?>
+    <?php foreach ($stylesheets as $stylesheet): ?>
         <link rel="stylesheet" type="text/css" href="<?=asset($stylesheet)?>">
     <?php endforeach;?>
 <?php endif;?>
@@ -35,7 +35,7 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <body>
 
 <!-- navbar -->
-<?php if (regionHasContent("navbar")) : ?>
+<?php if (regionHasContent("navbar")): ?>
     <div class="navbar is-spaced is-success">
         <div class="navbar-brand">
             <?php renderRegion("header")?>
@@ -47,14 +47,14 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <?php endif;?>
 
 <!-- main -->
-<?php if (regionHasContent("main")) : ?>
+<?php if (regionHasContent("main")): ?>
     <main class="wrap-main">
         <?php renderRegion("main")?>
     </main>
 <?php endif;?>
 
 <!-- footer -->
-<?php if (regionHasContent("footer")) : ?>
+<?php if (regionHasContent("footer")): ?>
 <div class="footer has-shadow has-background-success">
     <div class="content has-text-centered">
         <?php renderRegion("footer")?>
@@ -62,8 +62,8 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 </div>
 <?php endif;?>
 
-<?php if (isset($stylesheets)) : ?>
-    <?php foreach ($javascripts as $javascript) : ?>
+<?php if (isset($stylesheets)): ?>
+    <?php foreach ($javascripts as $javascript): ?>
     <script async src="<?=asset($javascript)?>"></script>
     <?php endforeach;?>
 <?php endif;?>

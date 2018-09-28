@@ -72,7 +72,25 @@ Jag är inte helt bekant med Anax ännu, så det blir något besvärligare att p
 <DIV class="redovisning hide">
 Kursmoment 3
 ===============
-Text hamnar här
+Detta kursmoment slutade mycket svårare än jag först trodde när jag läste uppgifterna. Till en början tänkte jag "hur svårt kan det vara?" när jag läste beskrvningen
+för tärningsspelet. Väl inne i det, var det lite mer invecklat än jag först tänkt mig. Jag började med att försöka koda utifrån principen "test driven kod", där man börjar
+med att skriva själva testproceduren, och sen skapar klasser utifrån det. Det blev för mycket att hålla reda på i huvudet, och jag kom inte någonstans, så jag slopade
+det, och gick över till "nybörjar stilen". Koda lite, kolla i webläsaren, koda lite till... Det var inte helt enkelt att reda ut hur man skulle fördela funktionaliteten mellan
+klasserna, och koden växer väldigt fort! I slutändan lyckades jag åtminstone få 100% kodtäckning i testfallen, och inte allt för mycket kod i routern, så jag känner mig ändå
+nöjd. Detta är inte första gången jag skriver kod som testar kod. Vi gjorde det i oopython kursen. Men detta är första gången jag åtminstone försöker mig på att koda
+testen först! Nu, lyckades jag inte särskilt bra, men ett steg i taget!
+
+Som sagt fick jag 100% kodtäckning i mina test, men jag ifrågsätter något vad det egenltligen betyder. Jag vet defakto att all kod inte är testad, men den är åtminstone körd.
+Jag hade på något vis lyckats förstöra min kod när jag höll på att skriva testerna. Testen tog inte upp detta, men mitt spel funkade inte som det skulle. Detta är verkligen
+något jag skall ta med mig i ryggsäcken och ha i åtanke nästa gång jag ger mig på att skriva test och testbar kod. Att skriva testbar kod är inte helt enkelt, det var några fall där jag fick lägga till setters och getters i mina klasser då det fanns kod jag inte kunde komma åt. Något som antaligen hade gått att undvika om man hade kodat test driven kod
+direkt från start. Dessutom blev några av testen något väl invecklade för att man skulle kunna komma åt allt.
+
+I detta fallet har jag skrivit test som är white box. Där jag kan gå in och rota i källkoden. Jag kan inte riktigt föreställa mig hur jag skulle kunna lyckas med att göra
+black box testing. Kankse är det fördelen med just black box testing, att det ställer högre krav på de klasser man skapar för att man enkelt skall kunna testa utan att behöva
+gå in och rota i källkoden för att sedan skapa invecklade testprocedurer där man skapar flera ålika klasser och kör flera olika metoder i samma test. För man blir bortskämd av
+att man har möjligheten att gå in och rota i källkoden.
+
+Min TIL för detta kursmomenten blir att skriva test driven kod inte är fullt så enkelt som jag först trodde. Eller inte alls så enkelt...
 
 
 </div>

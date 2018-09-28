@@ -1,0 +1,68 @@
+<?php
+/**
+ * Class for hand of Dices
+ */
+namespace Anax\Dice;
+
+class Hand
+{
+    /**
+     * @var Dice $dices Array of dices
+     * @var int $values Array of values of roll
+     */
+    private $dices = [];
+    private $values = [];
+
+    /**
+     * Constructor for DiceHand
+     *
+     * @param int $dices Number of dices to throw.
+     */
+    public function __construct(array $dices = [])
+    {
+        $this->dices = $dices;
+    }
+
+
+    /**
+     * Get values of dices from roll
+     *
+     * @return array with values from roll
+     */
+    public function roll()
+    {
+        for ($i = 0; $i < sizeof($this->dices); $i++) {
+            $this->values[$i] = $this->dices[$i]->roll();
+        }
+    }
+
+    /**
+     * Get values of dices from last roll.
+     *
+     * @return array with values of the last roll.
+     */
+    public function values()
+    {
+        return $this->values;
+    }
+
+    /**
+     * Publich method to get the sum of all rolls.
+     * @return int of the sum.
+     */
+    public function sum()
+    {
+        return array_sum($this->values);
+    }
+
+    /**
+     * Public method to return the average of all the rolls.
+     * @return int of the mean.
+     */
+    public function average()
+    {
+        $rolls = $this->values;
+        return array_sum($rolls) / sizeof($rolls);
+    }
+}
+

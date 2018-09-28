@@ -1,0 +1,45 @@
+<?php
+/**
+ * Dice class with namespace
+ */
+namespace Anax\Dice;
+
+class Dice
+{
+
+    /**
+     * @var int $sides  The number of sides of the dice.
+     * @var int $lastRoll The last roll
+     */
+    private $sides;
+    private $lastRoll;
+
+    /**
+     * Construct a new roll
+     * Predefines what rolls that will be made
+     */
+    public function __construct(int $sides = 6)
+    {
+        $this->sides = $sides;
+    }
+
+    /**
+     * Public method to make the rolls.
+     *  @return string with li and numbers.
+     */
+    public function roll()
+    {
+        $this->lastRoll = rand(1, $this->sides);
+        return $this->lastRoll;
+    }
+
+    /**
+     * Returns the last roll made.
+     *
+     * @return int of last roll.
+     */
+    public function getLastRoll()
+    {
+        return $this->lastRoll;
+    }
+}

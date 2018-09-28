@@ -43,4 +43,9 @@ return [
         "url" => "gissa",
         "title" => "Anax test page for routes.",
     ],
+    [
+        "text" => "Dice",
+        "url" => "dice",
+        "title" => "Anax test page for routes.",
+    ],
 ];

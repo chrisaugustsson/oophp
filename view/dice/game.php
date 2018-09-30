@@ -8,7 +8,7 @@
 <div class="container content">
 <div class="section">
     <h3>Start a new game</h3>
-    <form method="POST">
+    <form method="POST" action="start-game">
             <div class="field">
                 <label class="label">Enter number of players:</label>
                 <input class="input" type="number" id="nrOfPlayers" name="nrOfPlayers" value=0>

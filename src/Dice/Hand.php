@@ -4,14 +4,16 @@
  */
 namespace Anax\Dice;
 
-class Hand
+class Hand implements HistogramInterface
 {
+    use HistogramTrait;
+
+
     /**
      * @var Dice $dices Array of dices
-     * @var int $values Array of values of roll
      */
     private $dices = [];
-    private $values = [];
+
 
     /**
      * Constructor for DiceHand

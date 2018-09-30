@@ -38,6 +38,10 @@
     <h2>Your score is: <?= $game->getCurrentPlayer()->getScore() ?></h2>
     <h2>Make a roll or pass it to the next player.</h2>
     <h2><?= isset($game->roundData[0]) ? $game->roundData[0] : ""; ?></h2>
+    <div class="section">
+        <h2>Histogram:</h2>
+        <pre><?= $game->getHistogram() ?></pre>
+    </div>
     <form method="POST">
     <?php if ($game->getCurrentPlayer()->getType() !== "AI") :?>
         <?php if (!isset($game->roundData[1]) || $game->roundData[1] !== 0) : ?>

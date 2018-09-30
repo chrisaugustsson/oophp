@@ -5,41 +5,46 @@
  */
 $app->router->get("dice/", function () use ($app) {
 
-    $_SESSION = [];
+    $app->session->delete("game");
     $app->page->add("dice/game");
-
     return $app->page->render();
+});
+
+
+/**
+ *
+ */
+$app->router->post("dice/start-game", function () use ($app) {
+    $nrOfPlayers = $app->request->getPost("nrOfPlayers") ?? 1;
+    $nrOfAiPlayers = $app->request->getPost("nrOfAiPlayers") ?? 1;
+
+    $game = new  Anax\Dice\Game($nrOfPlayers, $nrOfAiPlayers);
+
+    $app->session->set("game", $game);
+
+    return $app->response->redirect("dice/started");
 });
 
 /**
  *
  */
-$app->router->post("dice/", function () use ($app) {
+$app->router->any("GET|POST", "dice/started", function () use ($app) {
 
-    if (!isset($_SESSION["game"])) {
-        $nrOfPlayers = $_POST["nrOfPlayers"];
-        $nrOfAiPlayers = $_POST["nrOfAiPlayers"];
+    $game = $app->session->get("game");
 
-        $game = new  Anax\Dice\Game($nrOfPlayers, $nrOfAiPlayers);
-
-        $_SESSION["game"] = $game;
-    } else {
-        $game = $_SESSION["game"];
-    }
-
-    if (isset($_POST["makeRoll"])) {
+    if ($app->request->getPost("makeRoll")) {
         $game->makeHand();
     }
 
-    if (isset($_POST["nextPlayer"])) {
+    if ($app->request->getPost("nextPlayer")) {
         $game->nextPlayer();
     }
 
-    if (isset($_POST["startGame"])) {
+    if ($app->request->getPost("startGame")) {
         $game->startGame();
     }
 
-    if (isset($_POST["botRoll"])) {
+    if ($app->request->getPost("botRoll")) {
         $game->botRoll();
     }
 

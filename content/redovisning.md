@@ -97,7 +97,13 @@ Min TIL för detta kursmomenten blir att skriva test driven kod inte är fullt s
 <DIV class="redovisning hide">
 Kursmoment 4
 ===============
-Text hamnar här
+Att använda sig av traits kan jag verkligen se ett användningsområde för. Väldigt smidigt om man har flera olika egenskaper som man vill dela upp, men samtidigt implementera i en och samma klass. Interface däremot, förstår jag inte riktigt när man skulle använda det. Åtminstone inte i denna typen av applikationer som vi jobbat i nu. I större applikationer kan jag förstå, där man säkerställer att klasserna har rätt interface implementerat. Det blir tydliga felmeddelanden om det är något man missat.
+
+Det var inga större svårigheter att implementera ramverkets funktioner och koppla bort de globala värdena, som $_SESSION och $_POST. Jag försökte göra en redirect, vilket inte fungerade alls till en början, men saknade visst att köra composer update. Efter det gick de galant!
+
+Jag var ganska ambitiös i förra kursmomentet och lyckades få 100% kodtäckning. Därför var det inte mycket jobb att bygga ut testet för den nya klassen och traitet som är implementerat. Jag hade även förberett AI-spelaren med super-simpel logik, så jag utökade logiken något. Förut tog den enbart hänsyn till hur många framgångsrika rolls som var gjorda. Alltså hur många rolls i rad som inte hade någon etta. Detta gjorde jag om till att den istället tar hänsyn till hur många rolls i rad som inte är framgångsrika, och vilka poängställning AI-spelaren har. Ifall den lite poäng skall den rulla oavsett, har den fler ska den vänta på det har varit några rullar med 1:or i.
+
+Efter att jag läst igenom "Gamblers fallacy" fick jag en mindre uppenbarelse. Jag har alltid gått i tron att sannolikheten för att en 1:a inte skall komma ökar med antalet gånger den kommer, men faktum är att sannorlikheten inte ändras med historiken. Detta får bli mitt TIL för denna veckan.
 
 
 </div>

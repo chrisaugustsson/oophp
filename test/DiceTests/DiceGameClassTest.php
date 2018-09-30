@@ -118,8 +118,8 @@ class DiceGameClassTest extends TestCase
         $game->nextPlayer();
         $game->botRoll();
 
-        $this->assertEquals(1, $game->currentPlayer());
-        $this->assertEquals(10, $players[1]->getScore());
+        $this->assertEquals(2, $game->currentPlayer());
+        $this->assertEquals(20, $players[1]->getScore());
 
         $game->setGoodToGo();
         $game->botRoll();

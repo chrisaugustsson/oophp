@@ -27,6 +27,7 @@ class Game
     public $roundData;
     private $rollHistory = [];
     public $goodToGo = true;
+    private $histogram;
 
     /**
      * Constructor to initiate a new game. If previus game is started, number of players will be passed
@@ -39,23 +40,21 @@ class Game
      */
     public function __construct(int $nrOfPlayers = 1, int $nrOfAiPlyers = 1, int $nrOfDices = 5)
     {
-        if (!isset($_SESSION["players"])) {
-            for ($i=0; $i < $nrOfPlayers; $i++) {
-                array_push($this->players, new Player());
-            }
-
-            for ($i=0; $i < $nrOfAiPlyers; $i++) {
-                array_push($this->players, new AiPlayer());
-            }
-
-            for ($i=0; $i < $nrOfDices; $i++) {
-                array_push($this->dices, new Dice());
-            }
-
-            $_SESSION["players"] = $this->players;
-            $this->currentPlayer = 1;
-            $this->stage = "pre";
+        for ($i=0; $i < $nrOfPlayers; $i++) {
+            array_push($this->players, new Player());
         }
+
+        for ($i=0; $i < $nrOfAiPlyers; $i++) {
+            array_push($this->players, new AiPlayer());
+        }
+
+        for ($i=0; $i < $nrOfDices; $i++) {
+            array_push($this->dices, new Dice());
+        }
+
+        $this->currentPlayer = 1;
+        $this->stage = "pre";
+        $this->histogram = new Histogram();
     }
 
 
@@ -127,6 +126,16 @@ class Game
     }
 
     /**
+     * Returns histogram
+     *
+     * @return string of the histogram
+     */
+    public function getHistogram()
+    {
+        return $this->histogram->getAsText();
+    }
+
+    /**
      * Increments current player with one to pass the turn to next player.
      * If it's the last players turn, passes it back to the first player.
      */
@@ -159,6 +168,7 @@ class Game
         if ($this->stage === "started") {
             $hand = new Hand($this->dices);
             $hand->roll();
+            $this->histogram->injectData($hand);
             $player = $this->players[$this->currentPlayer-1];
             $this->roundData = $this->round->evaluateRoll($hand->values());
             $player->setScore($player->getScore()*$this->roundData[1]+$this->roundData[2]);
@@ -174,7 +184,8 @@ class Game
      */
     public function botRoll()
     {
-        if ($this->getCurrentPlayer()->makeHand($this->rollHistory) && $this->goodToGo) {
+        $player = $this->getCurrentPlayer();
+        if ($player->makeHand($this->rollHistory, $player->getScore()) && $this->goodToGo) {
             $this->makeHand();
             $this->goodToGo = end($this->rollHistory) !== 0;
         } else {

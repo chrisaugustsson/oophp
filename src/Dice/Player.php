@@ -41,7 +41,15 @@ class Player
      */
     public function setScore(int $score)
     {
-        $this->score = $score;
+        $this->score += $score;
+    }
+
+    /**
+     * Sets the score of the player
+     */
+    public function resetScore()
+    {
+        $this->score = 0;
     }
 
     /**

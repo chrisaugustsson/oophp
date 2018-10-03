@@ -38,7 +38,7 @@ class AiPlayer extends Player
      * Determine if the bot should make a roll or not.
      * @return boolean
      */
-    public function makeHand(array $rollHistory, int $score)
+    public function makeHand(array $rollHistory, int $score = 0)
     {
         $temp = 0;
         foreach ($rollHistory as $roll) {

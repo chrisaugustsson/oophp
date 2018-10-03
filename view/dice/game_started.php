@@ -34,10 +34,14 @@
 
 <?php if ($game->getStage() === "started") : ?>
     <h3>Game started!</h3>
-    <h2>Player <?= $game->currentPlayer() ?></h2>
+    <?php foreach ($game->getPlayers() as $index => $player) : ?>
+        <h2>Player <?= $index + 1 ?> score: <?= $player->getScore() ?></h2>
+    <?php endforeach ?>
+    <h2>Current player: Player <?= $game->currentPlayer() ?></h2>
     <h2>Your score is: <?= $game->getCurrentPlayer()->getScore() ?></h2>
     <h2>Make a roll or pass it to the next player.</h2>
     <h2><?= isset($game->roundData[0]) ? $game->roundData[0] : ""; ?></h2>
+    <h2>Score this round: <?= $game->roundData[2] ?></h2>
     <div class="section">
         <h2>Histogram:</h2>
         <pre><?= $game->getHistogram() ?></pre>
@@ -63,11 +67,6 @@
 <?php if ($game->getStage() === "winner") : ?>
     <h3>GAME OVER!</h3>
     <h2>Player <?= $game->currentPlayer() ?> WON THE GAME</h2>
-    <form method="GET">
-        <div class="field">
-            <input type="submit" name="" class="button is-primary" value="Start new game">
-        </div>
-    </form>
 <?php endif; ?>
 
 

@@ -24,7 +24,7 @@ class Game
     private $currentPlayer;
     private $stage;
     private $startingPlayer;
-    public $roundData;
+    public $roundData = [0, 0, 0];
     private $rollHistory = [];
     public $goodToGo = true;
     private $histogram;
@@ -109,7 +109,7 @@ class Game
     {
         $this->round = new Round();
         $this->goodToGo = true;
-        $this->roundData = null;
+        $this->roundData = [0, 1, 0];
     }
 
     /**
@@ -117,12 +117,12 @@ class Game
      */
     public function startGame()
     {
+        for ($i=0; $i < count($this->players); $i++) {
+            $this->players[$i]->resetScore();
+        }
         $this->stage = "started";
         $this->currentPlayer = $this->startingPlayer;
         $this->startNewRound();
-        for ($i=0; $i < count($this->players); $i++) {
-            $this->players[$i]->setScore(0);
-        }
     }
 
     /**
@@ -141,11 +141,16 @@ class Game
      */
     public function nextPlayer()
     {
-        $this->startNewRound();
-        if ($this->currentPlayer < count($this->players)) {
-            $this->currentPlayer += 1;
+        $this->getCurrentPlayer()->setScore($this->roundData[2]);
+        if ($this->getCurrentPlayer()->getScore() >= 100) {
+            $this->stage = "winner";
         } else {
-            $this->currentPlayer = 1;
+            $this->startNewRound();
+            if ($this->currentPlayer < count($this->players)) {
+                $this->currentPlayer += 1;
+            } else {
+                $this->currentPlayer = 1;
+            }
         }
     }
 
@@ -154,7 +159,6 @@ class Game
      */
     public function makeHand()
     {
-        $this->roundData = [];
         if ($this->stage === "pre") {
             $hand = new Hand([$this->dices[0]]);
             $hand->roll();
@@ -169,13 +173,8 @@ class Game
             $hand = new Hand($this->dices);
             $hand->roll();
             $this->histogram->injectData($hand);
-            $player = $this->players[$this->currentPlayer-1];
             $this->roundData = $this->round->evaluateRoll($hand->values());
-            $player->setScore($player->getScore()*$this->roundData[1]+$this->roundData[2]);
             array_push($this->rollHistory, $this->roundData[1]);
-            if ($player->getScore() >= 100) {
-                $this->stage = "winner";
-            }
         }
     }
 
@@ -185,7 +184,7 @@ class Game
     public function botRoll()
     {
         $player = $this->getCurrentPlayer();
-        if ($player->makeHand($this->rollHistory, $player->getScore()) && $this->goodToGo) {
+        if ($player->makeHand($this->rollHistory, $this->roundData[2]) && $this->goodToGo) {
             $this->makeHand();
             $this->goodToGo = end($this->rollHistory) !== 0;
         } else {

@@ -48,4 +48,9 @@ return [
         "url" => "dice",
         "title" => "Anax test page for routes.",
     ],
+    [
+        "text" => "Movie",
+        "url" => "movie",
+        "title" => "Movies and stuff",
+    ],
 ];

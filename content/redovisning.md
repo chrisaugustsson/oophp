@@ -110,9 +110,13 @@ Efter att jag läst igenom "Gamblers fallacy" fick jag en mindre uppenbarelse. J
 <DIV class="redovisning hide">
 Kursmoment 5
 ===============
-Text hamnar här
+Att föra över filmdatabasen och dess CRUD till ramverket var inga som helst problem. Jag gjorde något annorlunda mot hur exempelkoden var uppbyggd. Det mesta kretsar kring första movie sidan. Där finns sökfält för både titel och årtal på samma sida, ikonerna för att ta bort eller editera rader i databsen finns rätt i tabbellen. Först när du trycker på någon utan av knapparna kommer du till en annan sida där du se editerar eller får bekräfta borttagningen. För mig kändes det som ett bra flöde för användaren.
 
+Det blev något mycket kod i routern. Något som man hade kunnat flytta ut till en egen klass, som hanterar databasfrågor. Hade jag haft mer tid över att jag gjort det så.
 
+Jag gjorde inget utöver det som var kraven för uppgiften. Det blev en enkel CRUD sida med användarvänligt gränssnitt.
+
+Det var en mycket bra guide i uppgiften med en del bra poänger. Men vissa saker hade jag nog gjort annorlunda. Visst är det bra att dela upp koden, men i vissa fall kan jag tycka att det är bättre att samla den på ett ställe. Om man drar det för långt med att splitta upp koden i små delar, blir det väldigt fragmenterat och svårt att förstå koden då du måste gå in på många olika ställen för att förstå helheten. I exempel koden skulle det tex kunna va esc() funktionen. Det blir inte många fler tecken att skriva htmlentities, men får någon som inte sett koden förut, blir det mycket mer jobb att förstå vad som händer just där.
 </div>
 <DIV class="redovisning hide">
 Kursmoment 6

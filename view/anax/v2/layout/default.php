@@ -18,6 +18,8 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
     <title><?=$title?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
     <script type="text/javascript" src="../htdocs/js/bulma-carousel.min.js"></script>
 

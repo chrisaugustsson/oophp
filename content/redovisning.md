@@ -121,9 +121,11 @@ Det var en mycket bra guide i uppgiften med en del bra poänger. Men vissa saker
 <DIV class="redovisning hide">
 Kursmoment 6
 ===============
-Text hamnar här
+Det är inte alltid enkelt att tänka objektorienterat. Upplever ofta att jag har svårt att hitta bra sätt att strukturera upp koden i klasser. Denna gången var inget undantag. Jag gjorde ändå ett försök att dela upp koden så mycket som jag kunde, men någonstans kan jag känna att det blir något krystat att skapa en klass för att lyfta ut någon enstaka funktion. Då skapar jag hellre en återanvändbar funktion för det ändamålet. Till uppgiften websiodr med innehåll i databasen valde jag att skapa en controller klass. I routen finns ingen annat än koden som monterar controller klassen. Jag har även delat upp en del av koden i klasserna Blog och Page. Dessa klasser hanterar Post och Pages som skall hämtas från databasen och filtreras. SQL frågorna i form av heredoc ansåg jag "smutsa" ner controllerklassen onödigt mycket och valde därför för att flytta ut detta till egna klasser. Jag försökte hitta andra möjligheter att dela koden ytterliggare, men många av de andra routsen hanterar både post och page på ett sätt som gör de svårt att dela upp koden. Det fick räcka så för denna gången.
 
+Formateringen av texten var inga som helst problem. Klassen struktur var i princip färdig från start, och det samma gäller för samltiga filter typer. Fattades bara att lyfta in respektive filter typ till dess funktion i klassen och voiala! Magi. Filterklassen hanterar de olika filterna som en array, men skulle man skicka en kommaseparerad sträng, tas denna om hand ändå och konverteras i parse().
 
+När jag har skrivit mycket kod, och allt fungerar som det är tänkt, brukar jag zooma ut i texteditorn och bara scrolla upp och ner för att se hur koden ser ut. Enlig mig skall koden vara tilltalande bara genom att titta på strukturen, utan att läsa vad det står. Koden som jag skrivit i controllerklassen går egentligen inte igenom min ockulära besiktning, men jag vet helt enkelt inte vad mer jag ska göra för att snygga till den. Vissa routes har lite väl mycket kod, för mycket if-satser osv, men samtidigt måste man sikta på att bli klar och överoptimera sin kod.
 </div>
 <DIV class="redovisning hide">
 Kursmoment 7
